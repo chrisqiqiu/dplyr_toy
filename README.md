@@ -18,9 +18,7 @@ where A, B and C are the site IDs touched by the user and A happened before B et
 ----------------------
 Load this report using R: https://s3-ap-southeast-2.amazonaws.com/bohemia-test-tasks/CLD/ESD_Conversionreport_05182016.csv
 It opens perfectly fine by Excel but it puzzled me a bit the other day. Could not open it in R as easily as other files.
-Tell me what was the problem and how did you solve it
 
-I observe the file in linux environment. I noticed there’s a weird character at the beginning of the file by using cat command to show the file. After I use “ sed '1d' ESD_Conversionreport_05182016.csv > tempFile” to remove the first line. I can open it in R. I think it is the Unicode encoding issue. It can be fixed if you use 
-read.delim("./Test/unin.txt", fileEncoding="UCS-2LE") . Also , the files have different width of the rows. The real column header start at row 9. I need to remove the first few rows to properly read the file into dataframe.
+In linux environment, I noticed there’s a weird character at the beginning of the file by using cat command to show the file. After I use ```sed '1d' ESD_Conversionreport_05182016.csv > tempFile``` to remove the first line. I can open it in R. I think it is the Unicode encoding issue. It can be fixed if you use ```read.delim("./Test/unin.txt", fileEncoding="UCS-2LE") ``` . Also , the files have different width of the rows. The real column header start at row 9. I need to remove the first few rows to properly read the file into dataframe.
 
 
